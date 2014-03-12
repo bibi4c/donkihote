@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TC010_監査表検索</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>監査表検索</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="serchfield">
+				<col width="9%" /><col width="25%" /><col width="9%" /><col width="25%" /><col width="9%" /><col width="23%" />
+				<tr>
+					<th>ジャンル<span class="require">*</span></th>
+					<td>
+						<select>
+							<option value="">----選択してください----</option>
+							<option value="">臨店チェックシート</option>
+							<option value="">現金実査表</option>
+							<option value="">本社-現金・現物実査表</option>
+						</select>
+					</td>
+					<th>担当者</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">◯◯◯◯◯◯◯◯</option>
+						</select>
+					</td>
+					<th>属性</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">ドン・キホーテ</option>
+							<option value="">長崎屋</option>
+							<option value="">ドイト</option>
+							<option value="">日商</option>
+							<option value="">ディワン</option>
+							<option value="">リアリット</option>
+							<option value="">アクリーティブ</option>
+							<option value="">アセットマーケティング</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>状態</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+						</select>
+					</td>
+					<th>是正有無</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">なし</option>
+							<option value="">あり</option>
+						</select>
+					</td>
+					<th>不可有無</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">なし</option>
+							<option value="">あり</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>店番</th>
+					<td>
+						<input type="text" class="shopcode">
+					</td>
+					<th>店舗名</th>
+					<td colspan="3">
+						<input type="text" class="shopname">
+					</td>
+				</tr>
+				<tr>
+					<th>日付</th>
+					<td colspan="2">
+						<label for="r1"><input id="r1" type="radio" name="r" />監査予定日</label>
+						&nbsp;
+						<label for="r2"><input id="r2" type="radio" name="r" />承認日</label>
+						&nbsp;
+						<label for="r3"><input id="r3" type="radio" name="r" />是正予定日</label>
+					</td>
+					<td colspan="3">
+						<input type="text" class="shortern timePicker">
+						縲鰀
+						<input type="text" class="shortern timePicker">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6">
+						<div class="btn">
+							<input type="submit" name="login" value="この条件で検索する" class="btnStandard" />
+						</div>
+					</td>
+				</tr>
+				</table>
+
+				<div id="resultSummary">
+					<div id="resultCount">
+						<strong>100</strong>件中 <strong>1</strong>件～<strong>10</strong>件
+					</div>
+				</div>
+
+				<table class="resultlist">
+				<!--<col width="15%" /><col width="20%" /><col width="33%" /><col width="17%" /><col width="15%" />-->
+				<tr>
+					<th>店舗名</th>
+					<th>ジャンル</th>
+					<th>状態</th>
+					<th>監査予定日</th>
+					<th>監査完了日</th>
+					<th>是正通知日</th>
+					<th>是正完了予定日</th>
+					<th>是正完了日</th>
+					<th>不可</th>
+					<th>是正有無</th>
+				</tr>
+				<tr>
+					<td><a href="">中目黒本店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ山下公園店</a></td>
+					<td>臨店チェック</td>
+					<td>是正中</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>3</td>
+					<td>なし</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ柏店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">中目黒本店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ山下公園店</a></td>
+					<td>臨店チェック</td>
+					<td>是正中</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>3</td>
+					<td>なし</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ柏店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">中目黒本店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ山下公園店</a></td>
+					<td>臨店チェック</td>
+					<td>是正中</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+					<td>3</td>
+					<td>なし</td>
+				</tr>
+				<tr>
+					<td><a href="">MEGAドン･キホーテ柏店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				<tr>
+					<td><a href="">中目黒本店</a></td>
+					<td>臨店チェック</td>
+					<td>監査完了</td>
+					<td>2013/08/01</td>
+					<td>2013/08/01</td>
+					<td>2013/08/15</td>
+					<td>2013/08/31</td>
+					<td>2013/08/31</td>
+					<td>0</td>
+					<td>あり</td>
+				</tr>
+				</table>
+
+				<ul class="paging">
+					<li><a href="javascript:void(0);" class="nolink">&lt; 前ページ</a></li>
+					<li><a href="#none" class="current">1</a></li>
+					<li><a href="#none">2</a></li>
+					<li><a href="#none">3</a></li>
+					<li><a href="#none">4</a></li>
+					<li><a href="#none">5</a></li>
+					<li><a href="#none">次ページ &gt;</a></li>
+				</ul>
+
+				<div id="actionField" class="clearfix">
+					<input type="submit" name="" value="結果のダウンロード" class="btnStandard posright" />
+
+					<a class="btnCanceller linkCanceller posLeft"  href='TA020_メニュー.html'>戻る</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

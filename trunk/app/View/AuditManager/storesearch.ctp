@@ -1,0 +1,16 @@
+<?php
+
+$options = array('0' => '');
+foreach ($arrStore as $store) {
+    $options += array(
+        $store ['Store'] ['store_id'] => $store ['Store'] ['name']
+    );
+}
+if (count($options) == 0)
+    $options = array('0' => '');
+echo $this->Form->input('store', array(
+    'options' => $options,
+    'style' => 'width: 200px; margin-left: 30px;',
+    'label' => false
+));
+?>

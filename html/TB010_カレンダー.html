@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TB010_カレンダー</title>
+<link href='./jquery/fullcalendar.css' rel='stylesheet' />
+<script src='./jquery/jquery-1.9.1.min.js'></script>
+<script src='./jquery/jquery-ui-1.10.2.custom.min.js'></script>
+<script src='./jquery/fullcalendar.js'></script>
+<script>
+
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next',
+				center: 'title',
+			},
+			editable: true,
+			events: [
+				{
+					title: '<img src="images/tron1.png"><a href="TB030_予定詳細・監査表_実施中.html" style="text-decoration:none"><span style="color: blue">005:実施中</span></a>',
+					start: new Date(y, m, d-3)
+				},
+				{
+					title: '<img src="images/tron2.png"> <a href="TB030_予定詳細・監査表_未実施.html" style="text-decoration:none"><span style="color: blue">001:未実施</span></a>',
+					start: new Date(y, m, d-2)
+				},
+				{
+					title: '<img src="images/tron2.png"><a href="TB030_予定詳細・監査表_承認待ち-監査完了.html" style="text-decoration:none"><span style="color: red">002:監査完了<br /><span style=" margin-left: 29px;">（2013/08/22）</span></span></a>',
+					start: new Date(y, m, d-0)
+				}
+			]
+		});
+		
+	});
+
+</script>
+
+<style>
+	#calendar {
+		width: 970px;
+		margin: 0 auto;
+	}
+	.fc-button-gotoDate {
+	       float: right;
+    margin-right: 20px;
+    margin-top: -13px;
+	 right: -226px;
+	}
+</style>
+		
+</head>
+ 
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>カレンダー</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="serchfield">
+				<col width="9%" /><col width="25%" /><col width="9%" /><col width="25%" /><col width="9%" /><col width="23%" />
+				<tr>
+				    <th style="font-size:16px">表示条件</th>
+				<tr>
+				    <th>属性</th>
+				    <td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">ドン・キホーテ</option>
+							<option value="">長崎屋</option>
+							<option value="">ドイト</option>
+							<option value="">日商</option>
+							<option value="">ディワン</option>
+							<option value="">リアリット</option>
+							<option value="">アクリーティブ</option>
+							<option value="">アセットマーケティング</option>
+						</select>
+					</td>
+					<th>ジャンル</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">臨店チェックシート</option>
+							<option value="">現金実査表</option>
+							<option value="">本社-現金・現物実査表</option>
+						</select>
+					</td>
+					<th>担当者</th>
+					<td>
+						<select>
+							<option value="">指定なし</option>
+							<option value="">◯◯◯◯◯◯◯◯</option>
+						</select>
+					</td>
+				</tr>
+					
+				<tr>
+					<td colspan="10">
+						<div class="btn">
+							<input type="submit" name="login" value="表示条件の変更" class="btnStandard posright" />
+						</div>
+					</td>
+				</tr>
+				</table>
+			  <div id='calendar'></div>
+			     
+				<div id="actionField" class="clearfix">
+				  <a class="btnCanceller linkCanceller posLeft"  href='./TA020_メニュー.html'>戻る</a> 
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

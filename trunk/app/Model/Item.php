@@ -1,0 +1,13 @@
+<?php
+
+App::uses('AppModel', 'Model');
+
+/**
+ * Teacher Model
+ */
+class Item extends AppModel {
+
+    var $useTable = 'items';
+    public $primaryKey = 'item_id';
+
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TB090_削除確認</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>削除確認</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+			    <h4 style="top:10px"> 以下の内容を削除します。よろしければOKボタンを押してください。<br><br></h4>
+				<table id="summaryField">
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<tr>
+					<th>店番</th>
+					<td>001</td>
+					<th>店舗名</th>
+					<td>中目黒本店</td>
+					<th>属性</th>
+					<td>○○○</td>
+				</tr>
+				<tr>
+					<th>ジャンル</th>
+					<td colspan="5">○○</td>
+				</tr>
+				<tr>
+          <th>状態</th>
+          <td colspan="5"> 承認待ち</td>
+        </tr>
+        <tr>
+          <th>是正通知日</th>
+          <td colspan="5">2013/08/01</td>
+        </tr>
+          <tr>
+          <th>是正完了予定日</th>
+          <td colspan="5">2013/08/01</td>
+        </tr>
+				</table>
+                
+                <table class="summaryObject">
+				<caption>コメント</caption>
+				<tr>
+					<td>臨店チェックシート</td>
+				</tr>
+				</table>
+
+				<table class="summaryObject">
+				<caption>是正勧告書</caption>
+				<tr>
+					<td>aaaaaaaa.pdf</td>
+				</tr>
+				</table>
+			
+	</div>
+	<div id="actionField" class="clearfix">
+			    <a class="btnCanceller linkCanceller posLeft"  href='TB030_予定詳細・監査表_未実施.html'>キャンセル</a> 
+				<a class="btnDelete linkCanceller posright"  href='./TB091_完了画面.html'>OK</a>
+			</div>
+	</div></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/!svn/ver/18690/hws/hws_donki/trunk/app/Plugin/file_upload
+END
+migration_guide_3_x-4_0.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/!svn/ver/16055/hws/hws_donki/trunk/app/Plugin/file_upload/migration_guide_3_x-4_0.txt
+END
+migration_guide_5_x_to_6_x.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/!svn/ver/16055/hws/hws_donki/trunk/app/Plugin/file_upload/migration_guide_5_x_to_6_x.txt
+END
+upload_example.sql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/16055/hws/hws_donki/trunk/app/Plugin/file_upload/upload_example.sql
+END
+readme.markdown
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/16055/hws/hws_donki/trunk/app/Plugin/file_upload/readme.markdown
+END

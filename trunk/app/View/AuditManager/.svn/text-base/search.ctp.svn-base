@@ -1,0 +1,332 @@
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy-m-d',
+		'controlType': 'select'
+	});
+});
+</script>
+<?php 
+// 	debug($data1);
+// 	debug($data);
+// 	die;
+?>
+<h4 style="top: 10px; color: red">
+	<?php
+	  $dowload_show = 1;
+	if(isset($error_message)){
+		echo '<div class="error_mes clearfix" style="display:block">'.$error_message.'</div>';
+		$dowload_show = 0;
+	}else{ 
+		if (isset($message_data_null)) { echo '<div class="error_mes clearfix" style="display:block">'.$message_data_null.'</div>';
+		$dowload_show = 0;
+		}
+		
+	}
+	?> 
+</h4>
+<div class="mainarea">
+	<table id="serchfield">
+		<col width="9%" />
+		<col width="25%" />
+		<col width="9%" />
+		<col width="25%" />
+		<col width="9%" />
+		<col width="23%" />
+				<?php echo $this->Form->create('AuditManager', array('type'=>'post','url'=>array('controller'=>'AuditManager','action'=>'get_conditions_search')));?>
+				<tr>
+			<th>ジャンル<span class="require">*</span></th>
+			<td>
+						<?php
+						$options = array (
+								'' => '----選択してください----' 
+						);
+						foreach ( $item_all as $item ) {
+							$options += array (
+									$item ['Item'] ['item_id'] => $item ['Item'] ['name'] 
+							);
+						}
+						echo $this->Form->input ( 'item', array (
+								'options' => $options,
+								'default' => $data1['Search']['item_id'],
+								'label' => false 
+						) );
+
+						?>
+						<?php echo $this->Form->hidden('flag_back', array('type'=>'text','label'=>false,'value'=>'1'));?>
+					</td>
+			<th>担当者</th>
+			<td>
+						<?php
+						$options = array (
+								'' => '' 
+						);
+						foreach ( $user_all as $user ) {
+							$options += array (
+									$user ['User'] ['user_id'] => $user ['User'] ['user_name'] 
+							);
+						}
+						echo $this->Form->input ( 'user', array (
+								'options' => $options,
+								'default' => $data1['Search']['user_id'],
+								'label' => false 
+						) );
+						?>
+					</td>
+			<th>属性</th>
+			<td>
+						<?php
+						$options = array (
+								'' => '' 
+						);
+						foreach ( $property_all as $property ) {
+							$options += array (
+									$property ['Property'] ['puroperty_id'] => $property ['Property'] ['name'] 
+							);
+						}
+						echo $this->Form->input ( 'property', array (
+								'options' => $options,
+								'default' => $data1['Search']['property_id'],
+								'label' => false 
+						) );
+						?>
+					</td>
+		</tr>
+		<tr>
+			<th>状態</th>
+			<td>
+						<?php
+						$options = array (
+								'' => '',
+								'0' => '未実施',
+								'4' => '実施中', 
+								'2' => '承認待ち',
+								'3' => '是正中',
+								'1' => '監査完了'
+						);
+						echo $this->Form->input ( 'status', array (
+								'options' => $options,
+								'default' => $data1['Search']['status'],
+								'label' => false 
+						) );
+						?>
+					</td>
+			<th>是正有無</th>
+			<td>
+						<?php
+						$options = array (
+								'' => '',
+								'1' => 'あり',
+								'0' => 'なし',
+						);
+						echo $this->Form->input ( 'correct_value', array (
+								'options' => $options,
+								'default' => $data1['Search']['correct_value'],
+								'label' => false,
+								'style' => 'width:70px;' 
+						)
+						 );
+						?>
+					</td>
+			<th>不可有無</th>
+			<td>
+						<?php
+						$options = array (
+								'' => '',
+								'1' => 'あり',
+								'0' => 'なし',
+						);
+						echo $this->Form->input ( 'impossible', array (
+								'options' => $options,
+								'default' => $data1['Search']['impossible'],
+								'label' => false,
+								'style' => 'width:70px;' 
+						) );
+						?>
+					</td>
+		</tr>
+		<tr>
+			<th>店番</th>
+			<td>
+						<?php echo $this->Form->input('store_no', array('type'=>'text','class'=>'shopcode','label'=>false,'value'=>$data1['Search']['store_no']));?>
+					</td>
+			<th>店舗名</th>
+			<td colspan="3">
+						<?php echo $this->Form->input('store_name', array('type'=>'text','class'=>'shopcode','label'=>false,'value'=>$data1['Search']['store_name']));?>
+					</td>
+		</tr>
+		<tr>
+			<th>日付</th>
+			<td colspan="2">
+						<?php
+						echo $this->Form->input ( 'date_type', array (
+								'type' => 'radio',
+								'options' => array (
+										'1' => '監査予定日　　',
+										'2' => '承認日　　',
+										'3' => '是正予定日' 
+								)
+								,
+								'label' => false,
+								'legend' => false,
+								'default' => $data1['Search']['date_type'],
+						) );
+						?>
+					</td>
+			<td colspan="3">
+						<?php echo $this->Form->input('date1', array('type'=>'text','class'=>'shortern timePicker','label'=>false,'div'=>false,'value'=>$data1['Search']['date1']));?>
+						〜
+						<?php echo $this->Form->input('date2', array('type'=>'text','class'=>'shortern timePicker','label'=>false,'div'=>false,'value'=>$data1['Search']['date2']));?>
+						<span style="color: red;font-size: 12px">※YYYY-MM-DDの形式で入力してください</span> 	
+			</td>	
+		</tr>
+		<tr>
+			<td colspan="6">
+				<div class="btn">
+							<?php echo $this->Form->input('この条件で検索する',array('type'=>'submit','class'=>'btnStandard','name'=>'login','label'=>false,'style'=>'height: 30px;'));?>
+						</div>
+			</td>
+		</tr>
+				<?php echo $this->Form->end();?>
+				</table>
+<?php echo $this->Form->create('AuditManager', array('type'=>'post','url'=>array('controller'=>'AuditManager','action'=>'export')));?>
+<?php if(isset($data) && count($data) > 0){?>
+				<div id="resultSummary">
+		<div id="resultCount">
+				<?php
+					echo $this->Paginator->counter ( array ('format' => __ ( '全<strong>{:count}</strong>件中　<strong>{:start}</strong>件～<strong>{:end}</strong>件を表示' )));
+				?>
+		</div>
+	</div>
+
+	<table class="resultlist">
+		<!--<col width="15%" /><col width="20%" /><col width="33%" /><col width="17%" /><col width="15%" />-->
+		<tr>
+			<th>店舗名</th>
+			<th>ジャンル</th>
+			<th>状態</th>
+			<th>監査予定日</th>
+			<th>監査完了日</th>
+			<th>是正通知日</th>
+			<th>是正完了予定日</th>
+			<th>是正完了日</th>
+			<th>不可</th>
+			<th>是正有無</th>
+		</tr>
+		<?php 
+// 			debug($data);
+// 			debug($data_store);
+// 			die;
+		?>
+		<?php foreach ($data as $datas){?>
+		<tr>
+			<td>
+				<?php 
+					echo $this->Html->link($arr_store_data[$datas['Audit']['store_id']], array('controller'=>'AuditManager', 'action'=>'index',$datas['Audit']['audit_id'],'back_search'), array('label'=>false));
+				?>
+			</td>
+			<td>
+				<?php echo $arr_item_data[$datas['Audit']['item_id']];?>
+			</td>
+			<td>
+				<?php 
+				if($datas['Audit']['status'] == 0){
+					 echo '未実施';
+				}else if($datas['Audit']['status'] == 1){
+					echo '監査完了';
+				}
+				else if($datas['Audit']['status'] == 2){
+					echo '承認待ち';
+				}
+				else if($datas['Audit']['status'] == 3){
+					echo '是正中';
+				}
+				else if($datas['Audit']['status'] == 4){
+					echo '実施中';
+				}
+				?>
+			</td>
+			<td>
+				<?php 
+				if (strlen($datas['Audit']['audit_scheduled_date'])>0){ 
+						  $date = $datas['Audit']['audit_scheduled_date'];
+						  $date = date('Y年n月j日',  strtotime($date));
+						} else  $date ='';
+						echo $date;
+				
+				?>
+			</td>
+			<td>
+				<?php
+				 
+				 if (strlen($datas['Audit']['audit_end_date'])>0){ 
+						  $date = $datas['Audit']['audit_end_date'];
+						  $date = date('Y年n月j日',  strtotime($date));
+						} else  $date ='';
+						echo $date;
+				?>
+			</td>
+			<td>
+				<?php 
+				if (strlen($datas['Audit']['correct_information_date'])>0){ 
+						  $date = $datas['Audit']['correct_information_date'];
+						  $date = date('Y年n月j日',  strtotime($date));
+						} else  $date ='';
+						echo $date;
+				
+				?>
+			</td>
+			<td>
+				<?php 
+				
+				if (strlen($datas['Audit']['correct_end_scheduled_date'])>0){ 
+						  $date = $datas['Audit']['correct_end_scheduled_date'];
+						  $date = date('Y年n月j日',  strtotime($date));
+						} else  $date ='';
+						echo $date;
+				?>
+			</td>
+			<td>
+			  <?php 
+				
+				if (strlen($datas['Audit']['correct_end_date'])>0){ 
+						  $date = $datas['Audit']['correct_end_date'];
+						  $date = date('Y年n月j日',  strtotime($date));
+						} else  $date ='';
+						echo $date;
+				?>
+			</td>
+			<td>
+				<?php echo $datas['Audit']['impossible']?>
+			</td>
+			<td>
+				<?php 
+					if($datas['Audit']['correct_value'] == '' || $datas['Audit']['correct_value'] == null){
+						echo '';
+					}else{
+						if($datas['Audit']['correct_value'] == '1'){
+							echo 'あり';
+						}else {
+							echo 'なし';
+						}	
+					}
+				?>
+			</td>
+		</tr>
+		<?php }?>
+	</table>
+	<?php if(isset($audit_find_all) && count($audit_find_all) > 10){?>
+		<ul class="paging">
+			<li><?php echo $this->Paginator->prev('前ページ', null, null, array('class' => 'nolink')); ?></li>
+			<li><?php echo $this->Paginator->numbers(array('separator'=>'','style'=>'width:20px;')); ?></li>
+			<li><?php echo $this->Paginator->next('次ページ', null, null, array('class' => 'nolink')); ?></li>
+		</ul>
+	<?php }?>
+	<?php } else $dowload_show = 0;?>
+	
+	<div id="actionField" class="clearfix">
+			<?php if ($dowload_show == 1) echo $this->Form->input('結果のダウンロード', array('type'=>'submit','class'=>'btnStandard posright','label'=>false,'value'=>'結果のダウンロード','style'=>'height: 33px;'));?>
+			<?php echo $this->Html->link('戻る', array('controller' => 'Menu', 'action' => 'index'), array('class'=>'btnCanceller linkCanceller posLeft','value'=>'戻る','label'=>false));?>
+	</div>
+	<?php echo $this->Form->end();?>
+</div>

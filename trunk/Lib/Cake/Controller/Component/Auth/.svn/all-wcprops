@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth
+END
+BaseAuthenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/BaseAuthenticate.php
+END
+ActionsAuthorize.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/ActionsAuthorize.php
+END
+BlowfishAuthenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/BlowfishAuthenticate.php
+END
+ControllerAuthorize.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/ControllerAuthorize.php
+END
+DigestAuthenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/DigestAuthenticate.php
+END
+BasicAuthenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/BasicAuthenticate.php
+END
+FormAuthenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/FormAuthenticate.php
+END
+BaseAuthorize.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/BaseAuthorize.php
+END
+CrudAuthorize.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Controller/Component/Auth/CrudAuthorize.php
+END

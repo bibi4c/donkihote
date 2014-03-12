@@ -1,0 +1,26 @@
+<?php 
+  $options = "";
+  $root = $this->App->webroot('/');
+  $textcolor = array('blue','red','blue','blue','blue');
+  $text = array('未実施','監査完了','承認待ち','是正中','実施中');
+  $icon = array('img/tron1.png','img/tron3.png','img/tron2.png','img/tron1.png','img/tron1.png');
+  $link = array('AuditManager/index','AuditManager/index','AuditManager/index','AuditManager/index','AuditManager/index','Calendar/eventlist');
+  foreach ( $audits as $audit ) {
+	$id = $audit ['Audit'] ['status'];
+		$no = $audit ['Audit'] ['store_no'];
+		$item_ids = $audit ['Audit'] ['item_id'];
+		$date = $audit ['Audit'] ['audit_end_date'];
+		if ($date != NULL) {
+		  $date = date('Y年n月j日',  strtotime($date));
+		  $date = "(".$date.")";
+		}
+		$link11 = $root.$link[$id].'/'.$audit ['Audit'] ['audit_id'];
+		$options .= "<p><img style=\"vertical-align: top;\" src=\"".$root.$icon[$item_ids]."\"><span style=\"cursor: pointer;\" onclick='gotolink(\"".$link11."\")'><span style=\" color:".$textcolor[$id]."\">". $no.":".$text[$id]."<br /><span style=\" margin-left: 20px;\">".$date."</span></span></span></p>";
+  }
+  echo $options;
+  ?>
+<script>
+function gotolink(url){
+self.parent.location.href = url;
+}
+</script>

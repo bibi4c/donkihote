@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View
+END
+MediaViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/MediaViewTest.php
+END
+ViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/ViewTest.php
+END
+HelperCollectionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/HelperCollectionTest.php
+END
+XmlViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/XmlViewTest.php
+END
+ScaffoldViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/ScaffoldViewTest.php
+END
+ThemeViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/ThemeViewTest.php
+END
+HelperTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/HelperTest.php
+END
+JsonViewTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/View/JsonViewTest.php
+END

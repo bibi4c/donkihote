@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>MA010_書類項目一覧</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+<style>
+#resultAction {
+    width: 100%;
+}
+table#serchfield input.shopcode1{
+    width: 60%;
+	}
+	.shortern{
+    width: 90px;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>書類項目一覧</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">				
+				<table id="serchfield">
+			   
+				<col width="5%" /><col width="25%" /><col width="5%" /><col width="25%" /><col width="9%" /><col width="23%" />
+				<tr>
+				    <th style="font-size:16px"></th>
+				<tr>
+				<tr>
+					<th>ジャンル</th>
+					<td>
+						<select style="width:80%; height:22px;">
+                        <option value="">----選択してください----</option>
+						<option value="">臨店チェックシート</option>
+						<option value="">現金実査表</option>
+						<option value="">本社-現金・現物実査表</option>
+                        </select>
+					</td>
+					<th>カテゴリ</th>
+					<td colspan="1">
+						<select style="width:80%; height:22px;">
+								<option value="">小口現金</option>
+								<option value="">XXXXX</option>
+						</select>
+					</td>
+				</tr>
+				
+					<tr>
+					<th>有効開始日</th>
+					<td colspan="3">
+						<input type="text" class="shortern timePicker">
+						縲鰀
+						<input type="text" class="shortern timePicker">
+					</td>
+				</tr>
+				
+					<tr>
+					<th>有効終了日</th>
+					<td colspan="3">
+						<input type="text" class="shortern timePicker">
+						縲鰀
+						<input type="text" class="shortern timePicker">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6">
+						<div class="btn">
+							<input type="submit" name="login" value="この条件で検索する" class="btnStandard posright" />
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+
+				<div id="resultSummary">
+					<div id="resultAction">
+						<a class="btnStandard linkCanceller posright postop"  href='./MA020_書類項目登録画面.html'>新規作成</a>
+					</div>
+					<div id="resultCount">
+						全<strong>57</strong>件中 <strong>1</strong>件～<strong>10</strong>件を表示
+					</div>
+				</div>
+				<table class="resultlist">
+				<!--<col width="15%" /><col width="20%" /><col width="33%" /><col width="17%" /><col width="15%" />-->
+				<tr>
+				
+					<th>項目番号</th>
+					<th>内容</th>
+					<th>ジャンル</th>
+					<th>カテゴリ</th>
+                    <th>開始日</th>
+                    <th>終了日</th>
+				
+
+				</tr>
+				<tr>
+					<td><a href="./MA030_書類項目編集画面.html">001-001</a></td>
+					<td width=480px>小口現金を保有しているか。</td>
+					<td>現金実査表</td>
+					<td>小口現金</td>
+                    <td>1999/01/01</td>
+                    <td>-</td>
+				</tr>
+				<tr>
+					<td><a href="./MA030_書類項目編集画面.html">001-002</a></td>
+					<td>小口現金の保管状況について、金庫内（施錠できる場所）に保管されているか。</td>
+					<td>現金実査表</td>
+					<td>小口現金</td>
+                    <td>1999/01/01</td>
+                    <td>-</td>
+                    
+				</tr>
+				<tr>
+					<td><a href="./MA030_書類項目編集画面.html">001-003</a></td>
+					<td >小口現金を実査する。</td>
+					<td>現金実査表</td>
+					<td>小口現金</td>
+                    <td>1999/01/01</td>
+                    <td>-</td>
+                    
+				</tr>
+				<tr>
+					<td><a href="./MA030_書類項目編集画面.html">101-001</a></td>
+					<td >○○○</td>
+					<td>臨店チェックシート</td>
+					<td>XXXXX</td>
+                    <td>1999/01/01</td>
+                    <td>2013/08/31</td>
+				</tr>
+				<tr>
+					<td><a href="./MA030_書類項目編集画面.html">101-002</a></td>
+					<td>○○○</td>
+					<td>臨店チェックシート</td>
+					<td>XXXXX</td>
+                    <td>2013/09/10</td>
+                    <td>-</td>
+				</tr>
+				</table>
+				<ul class="paging">
+					<li><a href="javascript:void(0);" class="nolink">&lt;</a></li>
+					<li><a href="#none" class="current">1</a></li>
+					<li><a href="#none">2</a></li>
+					<li><a href="#none">3</a></li>
+					<li><a href="#none">4</a></li>
+					<li><a href="#none">5</a></li>
+					<li><a href="#none">&gt;</a></li>
+				</ul>
+					<div id="actionField" class="clearfix">
+						<a class="btnCanceller linkCanceller posLeft"  href='TA020_メニュー.html'>戻る</a>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

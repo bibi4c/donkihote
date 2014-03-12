@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TB041_入力確認</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+</head>
+
+<body>
+	<div id="wrapper">
+	  <form name="TB040_Form" action="#">
+		<div id="header">
+			<div class="main">
+				<h1>監査項目入力確認</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+        
+        
+			<div class="mainarea">
+       <h4 style="top:10px"> 以下の内容を登録します。よろしければOKボタンを押してください。<br><br></h4>
+				<table class="TB040_table1">
+				    <tr>
+				    	<td id="TB040_table1_column1">検査カテゴリ</td>
+				    	<td id="TB040_table1_column2">小口現金</td>
+				    	<th id="TB040_table1_column3">評価有無</th>
+				    	<td id="TB040_table1_column4">
+				 			<h3>あり</h3>
+						</td>
+				    </tr>
+				  </table>
+			  
+			  
+				  <table class="TB040_table2">
+				  	<tr>
+				  		<th class="TB040_table2_column1"></th>
+				  		<th class="TB040_table2_column2">評価</th>
+				  		<th class="TB040_table2_column3">ファイル</th>
+				  	</tr>
+				  	<tr>
+				    	<td class="TB040_table2_column1"><h3>小口現金を保有しているか。</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">file1.pdf</td>
+				    </tr>
+				    <tr>
+				    	<td class="TB040_table2_column1"><h3>小口現金の保管状況について、金庫内（施錠できる場所）に保管されているか。</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">file2.pdf</td>
+				    </tr>
+				    <tr>
+				    	<td class="TB040_table2_column1"><h3>小口現金を実査する。</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">file3.pdf</td>
+				    </tr>
+				    <tr>
+				    	<td class="TB040_table2_column1"><h3>小口現金を実査した結果と、検査実施日分の「小口現金金種表」「経理日報」の残高を照合し、合致するか。
+				    	</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">file4.pdf</td>
+				    </tr>
+				    <tr>
+				    	<td class="TB040_table2_column1"><h3>管理担当者は、手堤金庫内の小口現金を日々計数し、「小口現金金種表」「経理日報」の残高と照合しているか。「小口現金金種表」「経理日報」の担当者印を確認する。
+				    	</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">
+				    		<h3>file5.pdf</h3>
+				    	</td>
+				    </tr>
+				    <tr>
+				    	<td class="TB040_table2_column1"><h3>管理責任者は、小口現金の残高について日々承認をおこなっているか。「小口現金金種表」「経理日報」の責任者印を確認する</h3></td>
+				    	<td class="TB040_table2_column2">
+				    		<h3>良</h3>
+				    	</td>
+				    	<td class="TB040_table2_column3">
+				    		<h3>file6.pdf</h3>
+				    	</td>
+				    	
+				    </tr>
+				  </table>
+			</div>
+	
+			<div id="actionField" class="clearfix">
+			    <a class="btnCanceller linkCanceller posLeft"  href='./TB040_監査項目登録画面.html'>キャンセル</a> 
+				<a class="btnStandard linkCanceller posright"  href='./TB042_完了画面.html'>OK</a>
+			</div>
+		</div>
+      </form>
+	</div>
+</body>
+</html>

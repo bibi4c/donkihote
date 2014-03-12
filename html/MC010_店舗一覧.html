@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>MC010_店舗一覧</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+<style>
+
+#resultAction {
+    width: 100%;
+}
+
+table#serchfield input.shopcode {
+    width: 62%;
+}
+
+table#serchfield input.shopname {
+    width: 50%;
+}
+.shortern{
+    width: 90px;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>店舗一覧</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="serchfield">		
+				<col width="5%" /><col width="25%" /><col width="5%" /><col width="25%" /><col width="9%" /><col width="23%" />
+				<tr>
+				    <th style="font-size:16px"></th>
+				<tr>
+				<tr>
+					<th>店番</th>
+					<td>
+						<input type="text" class="shopcode">
+					</td>
+					<th>店舗名</th>
+					<td colspan="3">
+						<input type="text" class="shopname">
+					</td>
+				</tr>
+				
+					<tr>
+					<th>有効開始日</th>
+					<td colspan="3">
+						<input type="text" class="shortern timePicker">
+						〜
+						<input type="text" class="shortern timePicker">
+					</td>
+				</tr>
+				
+					<tr>
+					<th>有効終了日</th>
+					<td colspan="3">
+						<input type="text" class="shortern timePicker">
+						〜
+						<input type="text" class="shortern timePicker">
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td colspan="6">
+						<div class="btn">
+						<div class="MCC010_btn_color ">
+							<input type="submit" name="login" value="この条件で検索する" class="btnStandard posright" />
+						</div>
+						</div>
+					</td>
+				</tr>
+				
+				</table>
+				</div>
+
+				<div id="resultSummary">
+					<div id="resultAction">
+						<a class="btnStandard linkCanceller posright postop"  href='./MC020_店舗登録.html'>新規作成</a>
+					</div>
+					<div id="resultCount">
+						全<strong>57</strong>件中 <strong>1</strong>件～<strong>10</strong>件を表示
+					</div>
+				</div>
+				<table class="resultlist">
+				<!--<col width="15%" /><col width="20%" /><col width="33%" /><col width="17%" /><col width="15%" />-->
+				<tr>
+				
+					<th>店番</th>
+					<th>店舗名</th>
+					<th>有効開始日</th>
+					<th>有効終了日</th>
+				
+
+				</tr>
+				<tr>
+					<td><a href="./MC030_店舗編集.html">10001</a></td>
+					<td width=480px>中目黒本店</td>
+					<td>1999/01/01</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="./MC030_店舗編集.html">20001</a></td>
+					<td>MEGAドン・キホーテ山下公園店</td>
+					<td>1999/01/01</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="./MC030_店舗編集.html">XXXXX</a></td>
+					<td >○○○</td>
+					<td>1999/01/01</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="./MC030_店舗編集.html">XXXXX</a></td>
+					<td >○○○</td>
+					<td>1999/01/01</td>
+					<td>2013/07/31</td>
+				</tr>
+				<tr>
+					<td><a href="./MC030_店舗編集.html">XXXXX</a></td>
+					<td>○○○</td>
+					<td>1999/01/01</td>
+					<td></td>
+				</tr>
+				</table>
+				<ul class="paging">
+					<li><a href="javascript:void(0);" class="nolink">&lt;</a></li>
+					<li><a href="#none" class="current">1</a></li>
+					<li><a href="#none">2</a></li>
+					<li><a href="#none">3</a></li>
+					<li><a href="#none">4</a></li>
+					<li><a href="#none">5</a></li>
+					<li><a href="#none">&gt;</a></li>
+				</ul>
+					<div id="actionField" class="clearfix">
+						<a class="btnCanceller linkCanceller posLeft"  href='TA020_メニュー.html'>戻る</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

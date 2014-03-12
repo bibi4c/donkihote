@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/drag_drop.css" />
+<script src='./jquery/jquery-1.9.1.min.js'></script>
+<script src='./jquery/jquery-ui-1.10.2.custom.min.js'></script>
+<title>ファイル添付</title>
+<script>
+	function hiddenText(element){
+		var e = element.parentNode;
+		e.style.display = "none";
+	}
+	function hideTempu(){
+		if(false == my_window.closed)
+      {
+         my_window.close ();
+      }
+	}
+	function hideTempu1(){
+      document.getElementById('my_file').click();
+	  
+	}
+</script>
+<STYLE>
+</STYLE>
+</head>
+
+<body>
+	<div id="popup1_container">
+		<form>
+			<fieldset>
+				<legend>ファイル添付</legend>
+			<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+			<div id="messages">
+				<p id="begintext"><font color="#000000" size="2px">添付ファイルがありません</font></p>
+			</div>
+					<input type="button" id="get_file" onclick="hideTempu1()" value="参照">
+					<input type="file" id="my_file">
+			<div>
+				<div id="filedrag"><h1>ここにファイルをドラッグしてください</h1></div>
+			</div>
+			
+			<button id="popup_button2" onclick="hideTempu()" type="reset">キャンセル</button>
+			<button id="submitbutton" onclick="javascript: closepopup()" type="submit">OK</button>
+			
+			</fieldset>
+		</form>
+	</div>
+	<script src="javascript/filedrag.js"></script>
+</body>
+</html>

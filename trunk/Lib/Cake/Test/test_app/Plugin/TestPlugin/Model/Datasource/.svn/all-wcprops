@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Plugin/TestPlugin/Model/Datasource
+END
+TestSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Plugin/TestPlugin/Model/Datasource/TestSource.php
+END
+TestOtherSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Plugin/TestPlugin/Model/Datasource/TestOtherSource.php
+END

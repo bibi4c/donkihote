@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Configure
+END
+ConfigReaderInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Configure/ConfigReaderInterface.php
+END
+PhpReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Configure/PhpReader.php
+END
+IniReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Configure/IniReader.php
+END

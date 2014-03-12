@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/!svn/ver/19145/hws/hws_donki/trunk/app/View/Errors
+END
+error400.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/19145/hws/hws_donki/trunk/app/View/Errors/error400.ctp
+END
+error500.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/View/Errors/error500.ctp
+END

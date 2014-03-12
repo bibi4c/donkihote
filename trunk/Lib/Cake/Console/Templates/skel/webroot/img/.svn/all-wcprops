@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img
+END
+test-error-icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/test-error-icon.png
+END
+test-fail-icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/test-fail-icon.png
+END
+cake.power.gif
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif
+END
+test-pass-icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/test-pass-icon.png
+END
+test-skip-icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/test-skip-icon.png
+END
+cake.icon.png
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Console/Templates/skel/webroot/img/cake.icon.png
+END

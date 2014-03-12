@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Log/Engine
+END
+FileLogTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Log/Engine/FileLogTest.php
+END
+ConsoleLogTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Log/Engine/ConsoleLogTest.php
+END

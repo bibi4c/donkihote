@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>MB010_ユーザ一覧</title>
+<style>
+
+#resultAction {
+    width: 100%;
+}
+
+table#serchfield input.shopcode {
+    width: 70%;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>ユーザ一覧</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="serchfield">
+				<col width="5%" /><col width="25%" /><col width="5%" /><col width="25%" /><col width="5%" /><col width="23%" />
+				<tr>
+				    <th style="font-size:16px"></th>
+				<tr>
+				<tr>
+					<th>担当者名</th>
+					<td>
+						<input type="text" class="shopcode">
+					</td>
+					<th>権限</th>
+                    <td>
+						<select style="width:60%; height:22px;">
+							 <option value="1">担当者</option>
+							 <option value="1">責任者</option>
+							 <option value="1">監査部</option>
+					</td>
+                    <th>有効／無効</th>
+                    <td>
+						<select style="width:60%; height:22px;">
+                        <option value="">有効</option>
+						<option value="">無効</option>
+                        </select>
+                    </td>
+          
+				</tr>
+	
+				<tr>
+					<td colspan="6">
+						<div class="btn">
+						<div class="MCC010_btn_color ">
+							<input type="submit" name="login" value="この条件で検索する" class="btnStandard posright" />
+						</div>
+						</div>
+					</td>
+				</tr>
+				
+				</table>
+				</div>
+
+				<div id="resultSummary">
+					<div id="resultAction">
+						<a class="btnStandard linkCanceller posright postop"  href='./MB020_ユーザ登録.html'>新規作成</a>
+					</div>
+					<div id="resultCount">
+						全<strong>57</strong>件中 <strong>1</strong>件～<strong>10</strong>件を表示		
+					</div>
+				</div>
+				<table class="resultlist">
+				<!--<col width="15%" /><col width="20%" /><col width="33%" /><col width="17%" /><col width="15%" />-->
+				<tr>
+				
+					<th>ID</th>
+					<th>担当者名</th>
+					<th>権限</th>
+					<th>メールアドレス</th>
+					<th>有効／無効</th>
+				
+
+				</tr>
+				<tr>
+					<td><a href="MB030_ユーザ編集.html">10001</a></td>
+					<td width=240px>田中　太郎</td>
+					<td>担当者</td>
+					<td width=240px>○○○@hotmail.com</td>
+					<td>有効</td>
+				</tr>
+				<tr>
+					<td><a href="MB030_ユーザ編集.html">20001</a></td>
+					<td>鈴木　花子</td>
+					<td>責任者</td>
+					<td width=240px>○○○@hotmail.com</td>
+					<td>有効</td>
+				</tr>
+				<tr>
+					<td><a href="MB030_ユーザ編集.html">XXXXX</a></td>
+					<td >○○○</td>
+					<td>監査部</td>
+					<td width=240px>○○○@hotmail.com</td>
+					<td>有効</td>
+				</tr>
+				<tr>
+					<td><a href="MB030_ユーザ編集.html">XXXXX</a></td>
+					<td >○○○</td>
+					<td>担当者</td>
+					<td width=240px>○○○@hotmail.com</td>
+					<td>有効</td>
+				</tr>
+				<tr>
+					<td><a href="MB030_ユーザ編集.html">XXXXX</a></td>
+					<td>○○○</td>
+					<td>担当者</td>
+					<td width=240px>○○○@hotmail.com</td>
+					<td>有効</td>
+				</tr>
+				</table>
+				<ul class="paging">
+					<li><a href="javascript:void(0);" class="nolink">&lt;</a></li>
+					<li><a href="#none" class="current">1</a></li>
+					<li><a href="#none">2</a></li>
+					<li><a href="#none">3</a></li>
+					<li><a href="#none">4</a></li>
+					<li><a href="#none">5</a></li>
+					<li><a href="#none">&gt;</a></li>
+				</ul>
+					<div id="actionField" class="clearfix">
+						<a class="btnCanceller linkCanceller posLeft"  href='TA020_メニュー.html'>戻る</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TA010_ログイン</title>
+<style>
+
+table#serchfield th {
+    float: right;
+	margin-left: -5%;
+	}
+table#serchfield{
+    margin-top: 13%;
+	}
+
+.btn {
+    margin: 0 auto 4%;
+}		
+</style>		
+</head>
+ 
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>ログイン</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="serchfield">
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr style="">
+				    <th style=" width: 12%;"></th>
+				    <th style="margin-top:17%">ID</th>
+					<td><input type="text" style="width:35%;margin-top:10%"/></td>
+				</tr>
+				<tr>
+				    <th style=" width: 0%;"></th> 
+				    <th>パスワード</th>
+					<td><input type="password" style="width:35%;"/></td>
+				</tr>
+					
+				<tr>
+					<td colspan="10">
+						<div class="btn">
+						    <a class="btnStandard linkCanceller" style="margin: 5px -93px 5px 5px;line-height: 20px;" href='TA020_メニュー.html'>ログイン</a>
+						</div>
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TB030_予定詳細・監査表</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>予定詳細・監査表</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<table id="summaryField">
+				<caption>各種ステータス</caption>
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<tr>
+					<th>状態</th>
+					<td>未実施</td>
+					<th>店番</th>
+					<td>001</td>
+					<th>店舗名</th>
+					<td>中目黒本店</td>
+					<th>属性</th>
+					<td>ドン・キホーテ</td>
+				</tr>
+				<tr>
+					<th>ジャンル</th>
+					<td colspan="7">臨店チェックシート</td>
+				</tr>
+				<tr>
+					<th>監査予定日</th>
+					<td>2013/08/20</td>
+					<th>監査日</th>
+					<td></td>
+					<th>承認日</th>
+					<td></td>
+					<th>監査完了日</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>是正通知日</th>
+					<td></td>
+					<th>是正完了予定日</th>
+					<td></td>
+					<th>是正完了日</th>
+					<td></td>
+					<th>是正完了日</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>良/可/不可/全</th>
+					<td colspan="7"></td>
+				</tr>
+				</table>
+
+				<table class="summaryObject">
+				<caption>コメント</caption>
+				<tr>
+					<td>本社-現金・現物実査表</td>
+				</tr>
+				</table>
+
+				<table class="summaryObject">
+				<caption>是正勧告書</caption>
+				<tr>
+					<td><a href="javascript:void(0);">aaaaaaaa.pdf</a></td>
+				</tr>
+				</table>
+
+
+
+				<table class="detailInspectionlist">
+				<col width="50%" /><col width="8%" /><col width="8%" /><col width="8%" /><col width="8%" /><col width="18%" />
+				<tr>
+					<th>物品名</th>
+					<th>全</th>
+					<th>良</th>
+					<th>可</th>
+					<th>不可</th>
+					<th>状態</th>
+				</tr>
+				<tr>
+					<td><a href="TB040_監査項目登録画面.html">小口現金</a></td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>入力済み</td>
+				</tr>
+				<tr>
+					<td><a href="TB070_監査項目画面.html">収入印紙</a></td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>入力済み</td>
+				</tr>
+				<tr>
+					<td><a href="TC080_監査項目変更画面.html">グループ共通（ギフトカード）</a></td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>未実施</td>
+				</tr>
+				<tr>
+					<td><a href="">グループ共通（汚破損券）</a></td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>未実施</td>
+				</tr>
+				<tr>
+					<td><a href="">JCBギフト長崎屋</a></td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>未実施</td>
+				</tr>
+				</table>
+
+				<div id="actionField" class="clearfix">
+					<a class="btnStandard linkCanceller posright"  href='TB101_入力確認.html'>監査開始</a>
+					<a class="btnCanceller linkCanceller posLeft"  href='TB010_カレンダー.html'>戻る</a> 
+					<a class="btnDelete linkCanceller posright posright1"  href='TB090_削除確認.html'>削除</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

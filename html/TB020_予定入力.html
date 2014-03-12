@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TB020_予定入力</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<style>
+table#serchfield th {
+text-align:center;
+color:black;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>予定入力</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+        
+        
+<div class="mainarea">
+    <table id="summaryField">
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<tr>
+					<th>監査予定日</th>
+					<td colspan="5">2013/08/01</td>
+				</tr>
+				<tr>
+					<th >店舗</th>
+						<td colspan="5"><input type="text" class="nameinput">
+						    <button value="true" class="seach_class_btn" id="scbar_btn" name="searchsubmit" type="submit">選択</button>
+							<select class="select_box" style="width:300px;margin-left: 30px;">
+									<option value="">中目黒本店</option>
+									<option value="">中目黒本店</option>
+							</select>
+						</td>
+				</tr>
+				<tr>
+					<th>ジャンル</th>
+					<td colspan="5"><select>
+						<option value="">----選択してください----</option>
+						<option value="">臨店チェックシート</option>
+						<option value="">現金実査表</option>
+						<option value="">本社-現金・現物実査表</option>
+					</select></td>
+				</tr>
+				</table>
+</div>
+
+<div id="actionField" class="clearfix">
+    <a class="btnCanceller linkCanceller posLeft"  href='./TB010_カレンダー.html'>戻る</a> 
+	<a class="btnStandard linkCanceller posright"  href='./TB021_入力確認.html'>登録</a>
+</div>
+</div>
+</div>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+</body>
+</html>

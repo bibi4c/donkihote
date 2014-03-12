@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>MC020_店舗登録</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+<style>
+table#serchfield th {
+text-align:center;
+color:black;
+  width: 15%;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>店舗登録</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<div id="MCC020_content_part1">
+				 <table id="summaryField">
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<tr>
+					<th>店番</th>
+					<td><input type="text" style=""class="dateinput" value=""></td>
+					<th>属性</th>
+					<td><select>
+							<option value="">指定なし</option>
+							<option value="">ドン・キホーテ</option>
+							<option value="">長崎屋</option>
+							<option value="">ドイト</option>
+							<option value="">日商</option>
+							<option value="">ディワン</option>
+							<option value="">リアリット</option>
+							<option value="">アクリーティブ</option>
+							<option value="">アセットマーケティング</option>
+						</select></td>
+					<th>店舗名</th>
+					<td><input type="text" style=""class="dateinput" value=""></td>
+				</tr>
+        <tr>
+          <th>有効開始日</th>
+          <td colspan="5"><input type="text" style="width:30%"class="dateinput timePicker" value=""></td>
+        </tr>
+          <tr>
+          <th>有効終了日</th>
+          <td colspan="5"><input type="text" style="width:30%"class="dateinput timePicker" value=""></td>
+        </tr>
+				</table>
+				</div>
+				
+				<!--<div id="MCC020_content_part2"></div>
+				</div>
+		--></div>
+		
+			<div id="actionField" class="clearfix">
+				<a class="btnStandard linkCanceller posright"  href='MC021_入力確認.html'>登録</a>
+				<a class="btnCanceller linkCanceller posLeft"  href='MC010_店舗一覧.html'>戻る</a>
+			</div>
+	</div>
+</body>
+</html>

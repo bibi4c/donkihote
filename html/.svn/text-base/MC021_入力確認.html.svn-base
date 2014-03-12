@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>MC021_入力確認</title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src='jquery/jquery-1.8.3.js'></script>
+<script src='jquery/jquery.1.7.2.min.js'></script>
+<script src='jquery/jquery-ui.js'></script>
+<script src='jquery/jquery-ui-timepicker-addon.js'></script>
+<style>
+table#serchfield th {
+text-align:center;
+color:black;
+}
+</style>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>店舗入力確認</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+        
+        
+<div class="mainarea">
+ <h4 style="top:10px"> 以下の内容を登録します。よろしければOKボタンを押してください。<br><br></h4>
+  <table id="summaryField">
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<col width="10%" />
+				<col width="15%" />
+				<tr>
+					<th>店番</th>
+					<td>0001</td>
+					<th>属性</th>
+					<td>○○○</td>
+					<th>店舗名</th>
+					<td>○○○</td>
+				</tr>
+        <tr>
+          <th>有効開始日</th>
+          <td colspan="5">2013/08/01</td>
+        </tr>
+          <tr>
+          <th>有効終了日</th>
+          <td colspan="5">2013/08/01</td>
+        </tr>
+				</table>
+</div>
+
+<div id="actionField" class="clearfix">
+    <a class="btnCanceller linkCanceller posLeft"  href='./MC020_店舗登録.html'>キャンセル</a> 
+	<a class="btnStandard linkCanceller posright"  href='./MC022_完了画面.html'>OK</a>
+</div>
+</div>
+</div>
+</body>
+</html>

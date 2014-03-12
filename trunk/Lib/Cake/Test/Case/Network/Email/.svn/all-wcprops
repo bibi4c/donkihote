@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/Email
+END
+CakeEmailTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/Email/CakeEmailTest.php
+END
+MailTransportTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/Email/MailTransportTest.php
+END
+SmtpTransportTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/Email/SmtpTransportTest.php
+END
+DebugTransportTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/Email/DebugTransportTest.php
+END

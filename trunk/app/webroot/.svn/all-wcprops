@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/!svn/ver/19146/hws/hws_donki/trunk/app/webroot
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/webroot/test.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/webroot/.htaccess
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/webroot/index.php
+END
+favicon.ico
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/webroot/favicon.ico
+END

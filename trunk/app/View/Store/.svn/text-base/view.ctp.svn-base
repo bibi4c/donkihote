@@ -1,0 +1,103 @@
+<?php
+echo $this->Html->script('jquery-ui'); 
+echo $this->Html->script('jquery-ui-timepicker-addon');
+?>
+<script>
+jQuery(function(){
+	jQuery('.timePicker').datepicker({
+		timeFormat: 'yyyy/m/d',
+		'controlType': 'select'
+	});
+});
+</script>
+<style>
+table#serchfield th {
+	text-align: center;
+	color: black;
+	width: 15%;
+}
+#error_mes{
+  	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    margin: 5px 0 30px;
+    padding: 10px;
+	display: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+</style>
+<h4 id="error_mes" class="clearfix" style="top: 10px; color: red"></h4>
+<?php echo $this->Form->create('Store',array('type'=>'post','url'=>array('controller'=>'Store','action'=>'view',$data['Store']['store_id'])));?>
+<div class="mainarea">
+	<div id="MCC020_content_part1">
+		<table id="summaryField">
+			<col width="10%" />
+			<col width="15%" />
+			<col width="10%" />
+			<col width="15%" />
+			<col width="10%" />
+			<col width="15%" />
+			<tr>
+				
+				<th>店番</th>
+				<td>
+					<?php 
+						echo $data['Store']['store_no'];
+						echo $this->Form->hidden('store_id',array('type'=>'text','value'=>$data['Store']['store_id'],'label'=>false, 'class'=>'dateinput'));
+                    	echo $this->Form->hidden('store_no',array('type'=>'text','value'=>$data['Store']['store_no'],'label'=>false, 'class'=>'dateinput'));
+                    ?>
+				</td>
+				<th>属性</th>
+				<td>
+					 <?php 
+					    $options = array();
+						foreach ($properties_all as $property_all){
+						 $options +=  array($property_all['Property']['puroperty_id']=>$property_all['Property']['name']);
+						}
+						echo $this->Form->input ( 'property_id', array (
+								'options' => $options,
+								'style' => '',
+								'default'=>$data['Store']['property_id'], 
+								'label'=>false
+						) );
+					 ?>
+				</td>
+				<th>店舗名</th>
+				<td>
+					<?php 
+                    	echo $this->Form->input('name',array('type'=>'text','value'=>$data['Store']['name'],'label'=>false, 'class'=>'dateinput', 'required'=>FALSE));
+                    ?>
+				</td>
+			</tr>
+			<tr>
+				<th>有効開始日</th>
+				<td colspan="5">
+					<?php 
+						$date = $data['Store']['valid_start_day'];
+                    	echo $this->Form->input('valid_start_day',array('type'=>'text', 'style'=>'width: 30%', 'value'=>$date,'label'=>false, 'class'=>'dateinput timePicker', 'required'=>FALSE));
+                    ?>	
+				</td>
+			</tr>
+			<tr>
+				<th>有効終了日</th>
+				<td colspan="5">
+					<?php 
+						$date = $data['Store']['valid_end_day'];
+                    	echo $this->Form->input('valid_end_day',array('type'=>'text', 'style'=>'width: 30%', 'value'=>$date,'label'=>false, 'class'=>'dateinput timePicker', 'required'=>FALSE));
+                    ?>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div id="actionField" class="clearfix">
+	 <button class="btnStandard linkCanceller posright" type="submit">確認</button>
+	 <?php echo $this->Html->link('戻る', array('controller'=>'Store', 'action'=>'index'), array('class'=>'btnCanceller linkCanceller posLeft'));?>
+</div>
+<?php echo $this->Form->end(); ?>
+ <script>
+  var tt = ($(".error-message:first").text());
+  $("#error_mes").text(tt);
+  if (tt.length > 0) $("#error_mes").show();
+</script>

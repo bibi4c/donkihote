@@ -1,0 +1,202 @@
+<?php
+
+App::uses('AppController', 'Controller');
+//App::uses('HtmlHelper', 'View/Helper');
+/**
+ * Fileuploads Controller
+ *
+ * @property Fileupload $Fileupload
+ */
+CakePlugin::load('FileUpload');
+
+class FileuploadsController extends AppController {
+
+//public $helpers = array( 'Form','Html', 'FileUpload.FileUpload');
+    public $components = array('RequestHandler'); //array('FileUpload.FileUpload');
+
+///*
+//public function beforeFilter(){
+//     $this->FileUpload->allowedTypes(array(
+//         'jpg' => array('image/jpeg', 'image/pjpeg'),
+//         'jpeg' => array('image/jpeg', 'image/pjpeg'),
+//         'gif' => array('image/gif'),
+//         'png' => array('image/png','image/x-png'),
+//         'zip' => array('application/octet-stream')
+//        )
+//     );
+//     //$this->FileUpload->fields(array('name'=> 'name', 'type' => 'type', 'size' => 'size')); //c�c field tuong ?ng trong csdl
+//     $this->FileUpload->uploadDir('files'); //file upload ?nh, luu folder d� c� s?n
+//     $this->FileUpload->fileModel('Fileupload');  //model c?a csdl
+//     //$this->FileUpload->fileVar('url'); //name
+//	 //$this->FileUpload->fileNameFunction('md5');
+//	}
+//	*/
+    /**
+     * index method
+     *
+     * @return void
+     */
+
+    public function index() {
+        $this->Fileupload->recursive = 0;
+        $this->set('fileuploads', $this->paginate());
+    }
+
+    /**
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view($id = null) {
+        $this->Fileupload->id = $id;
+        if (!$this->Fileupload->exists()) {
+            throw new NotFoundException(__('Invalid fileupload'));
+        }
+        $this->set('fileupload', $this->Fileupload->read(null, $id));
+    }
+
+    /**
+     * add method
+     *
+     * @return void
+     */
+    public function add($id = null, $store = null) {
+        //$audit_detail = $this->Audit_detail->find('all', array('conditions' => array('Audit_detail.audit_id' => $temp1,'Audit_detail.document_id'=>$temp0)));
+
+        $this->layout = 'ajax';
+        if ($this->request->is('post')) {
+            //if($this->RequestHandler->isAjax()){
+            $this->autoRender = false;
+            $bibi_find = $this->Fileupload->find('first', array(
+                'fields' => array('audit_detail_file_id'),
+                'order' => array(
+                    'audit_detail_file_id DESC')
+            ));
+            if ($bibi_find != NULL)
+                $id_file = $bibi_find['Fileupload']['audit_detail_file_id'];
+            else
+                $id_file = 0;
+            $id_file++;
+            $leng_id = strlen($id_file);
+            $char_id = '';
+            for ($i = 0; $i < 11 - $leng_id; $i++) {
+                $char_id = $char_id . '0';
+            }
+            $char_id = $char_id . $id_file;
+            $this->Fileupload->create();
+            $data = $this->request->data;
+            $data['Fileupload']['audit_detail_file_id'] = $id_file;
+            $bibi_ext = strrchr($data['Fileupload']['file']['name'], ".");
+            $data['Fileupload']['file']['size'] = 'audit_detail_' . $store . '_' . $char_id;
+            $temp = 'audit_detail_' . $store . '_' . $char_id . $bibi_ext;
+            $data['Fileupload']['audit_detail_file_path'] = $temp;
+            $data['Fileupload']['audit_detail_file_name'] = $data['Fileupload']['file']['name'];
+            $data['Fileupload']['register_datetime'] = date('Y-m-d H:i:s');
+            $data['Fileupload']['audit_detail_id'] = $id;
+            $data['Fileupload']['register_user'] = '0';
+            if ($this->Fileupload->save($data)) {
+                $result = "<div id='status'>success</div>";
+                $result .= "<div id='message'>Succe upload</div>";
+                //$this->Cookie->write($result)
+            } else {
+                //$this->Session->setFlash(__('IDまたはパスワードが一致しません。'), 'flash_notification');
+                //	$this->Session->setFlash(__('The fileupload could not be saved. Please, try again.'));
+                $result = "<div id='status'>error</div>";
+                $result .= "<div id='message'>" . $this->Fileupload->validationErrors['file'] . "</div>";
+            }
+            echo $result;
+            /*
+              if($this->FileUpload->success){
+              $this->set('photo', $this->FileUpload->finalFile);
+              $this->Session->setFlash(__('Upload successfully', true));
+              }else{
+              $this->Session->setFlash($this->FileUpload->showErrors());
+              } */
+        }
+        //}
+    }
+
+    /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function add_1($id = null) {
+        //$audit_detail = $this->Audit_detail->find('all', array('conditions' => array('Audit_detail.audit_id' => $temp1,'Audit_detail.document_id'=>$temp0)));//c�c field tuong ?ng trong csdl
+        //$this->FileUpload->actsAs['FileUpload.FileUpload']['uploadDir'] = 'files/audits';
+        $this->layout = 'ajax';
+        if ($this->request->is('post')) {
+            if ($this->RequestHandler->isAjax()) {
+                $this->autoRender = false;
+                $this->Fileupload->create();
+                $data = $this->request->data;
+                $data['Fileupload']['audit_detail_file_path'] = 'files/audit_details/';
+                $data['Fileupload']['audit_file_name'] = $data['Fileupload']['file']['name'];
+                $data['Fileupload']['register_datetime'] = date('Y-m-d H:i:s');
+                $data['Fileupload']['audit_detail_id'] = $id;
+                $data['Fileupload']['register_user'] = '0';
+                if ($this->Fileupload->save($data)) {
+                    $result = "<div id='status'>success</div>";
+                    $result .= "<div id='message'>Succe upload!</div>";
+                    //$this->Cookie->write($result)
+                } else {
+                    //$this->Session->setFlash(__('The fileupload could not be saved. Please, try again.'));
+                    $result = "<div id='status'>error</div>";
+                    $result .= "<div id='message'>" . $this->Fileupload->validationErrors['file'] . "</div>";
+                }
+                echo $result;
+                /*
+                  if($this->FileUpload->success){
+                  $this->set('photo', $this->FileUpload->finalFile);
+                  $this->Session->setFlash(__('Upload successfully', true));
+                  }else{
+                  $this->Session->setFlash($this->FileUpload->showErrors());
+                  } */
+            }
+        }
+    }
+
+    public function edit($id = null) {
+        $this->Fileupload->id = $id;
+        if (!$this->Fileupload->exists()) {
+            throw new NotFoundException(__('Invalid fileupload'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Fileupload->save($this->request->data)) {
+                $this->Session->setFlash(__('The fileupload has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The fileupload could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->Fileupload->read(null, $id);
+        }
+    }
+
+    /**
+     * delete method
+     *
+     * @throws MethodNotAllowedException
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function delete($id = null) {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        $this->Fileupload->id = $id;
+        if (!$this->Fileupload->exists()) {
+            throw new NotFoundException(__('Invalid fileupload'));
+        }
+        if ($this->Fileupload->delete()) {
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->redirect(array('action' => 'index'));
+    }
+
+}

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http
+END
+HttpResponse.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http/HttpResponse.php
+END
+DigestAuthentication.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http/DigestAuthentication.php
+END
+BasicAuthentication.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http/BasicAuthentication.php
+END
+HttpSocketResponse.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http/HttpSocketResponse.php
+END
+HttpSocket.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Network/Http/HttpSocket.php
+END

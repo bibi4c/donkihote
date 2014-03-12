@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network
+END
+CakeRequestTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/CakeRequestTest.php
+END
+CakeSocketTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/CakeSocketTest.php
+END
+CakeResponseTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/Case/Network/CakeResponseTest.php
+END

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config
+END
+no_php_extension
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/no_php_extension
+END
+var_test2.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/var_test2.php
+END
+nested.ini
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/nested.ini
+END
+acl.ini.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/acl.ini.php
+END
+empty.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/empty.php
+END
+acl.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/acl.php
+END
+htmlhelper_minimized.ini
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/htmlhelper_minimized.ini
+END
+no_ini_extension
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/no_ini_extension
+END
+routes.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/routes.php
+END
+htmlhelper_tags.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/htmlhelper_tags.php
+END
+empty.ini
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/empty.ini
+END
+acl.ini
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/!svn/ver/17587/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/acl.ini
+END
+var_test.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/var_test.php
+END
+no_section.ini
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/14328/hws/hws_donki/trunk/Lib/Cake/Test/test_app/Config/no_section.ini
+END

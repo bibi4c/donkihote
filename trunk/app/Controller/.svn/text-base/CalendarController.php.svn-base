@@ -1,0 +1,402 @@
+<?php
+class CalendarController extends AppController {
+	var $uses = array('Calendar','Item','Category','Property','Audit','Store','User');
+
+	public $layout = null;
+	public $components = array('RequestHandler','Cookie');
+	public $helpers = array(
+			'Html','Form',
+			'Session','Paginator','Js',
+	);
+	var $paginate = array();
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$aryUser = $this->Session->read('Auth.User');
+		$this->Cookie->delete('userRegister');
+		$this->Cookie->delete('store_searchForm');
+		$this->Cookie->delete('user_searchForm');
+		if(!empty($aryUser)){
+			$this->layout = 'user';
+		}
+		//if ($this->request->params['action'] == 'index') $this->redirect(array('action'=>'index'));
+	}
+	public function search(){
+	 $this->layout = 'user';
+	 $page_tittle = "書類項目一覧";
+	 $this->set("page_tittle",$page_tittle);
+	 if ($this->request->is('post')) {
+		 $data = $this->request->data;
+		 $this->Cookie->write("calendar_searchForm",$data);
+		 // debug($data);die();
+	 }
+	 return $this->redirect(array('action'=>'index'));
+	}
+	public function index(){
+
+	 $this->layout = 'calendar';
+	 $page_tittle = "カレンダー";
+	 $this->set("page_tittle",$page_tittle);
+	 $condition = array();
+	 $condition1 = array();
+	 $search = $this->Cookie->read('calendar_searchForm');
+	 $start_f = 0;
+	 $err_mmmm = 0;
+	 $aryUser = $this->Session->read('Auth.User');
+	 //debug($aryUser);
+	 if ($aryUser['authority_id'] == 1) $condition1 = array('Audit.audit_create_user' =>$aryUser['user_id']);
+	 if ($aryUser['authority_id'] == 2) $condition1 = array('Audit.status' => 2);
+	 if (isset($search)){
+	 	if($search['searchForm']['property_id'] != '0'){
+		  $property_id = $search['searchForm']['property_id'];
+		  $store_data = $this->Store->find('list',array(
+		  		'conditions' => array('Store.property_id' => $property_id),
+		  		'fields' => array('Store.store_id','Store.store_id'),
+		  ));
+		  //debug($store_data);
+		  $condition += array('Audit.store_id' =>  array_keys($store_data));
+		  	
+	 	}
+
+
+		 if($search['searchForm']['item_id'] != '0') $condition += array('Audit.item_id' =>$search['searchForm']['item_id']);
+		 if($search['searchForm']['user_id'] != '0') $condition += array('Audit.audit_create_user' =>$search['searchForm']['user_id']);
+		 if($search['searchForm']['status_n'] != '') $condition += array('Audit.status' =>$search['searchForm']['status_n']);
+		 //debug($condition);die();
+	 }
+	 else
+	 {
+	 	$search['searchForm']['item_id'] = '0';
+	 	$search['searchForm']['property_id'] = '0';
+		 if ($aryUser['authority_id'] == 1) $search['searchForm']['user_id'] = $aryUser['user_id']; else $search['searchForm']['user_id'] = '0';
+		 if ($aryUser['authority_id'] == 2) $search['searchForm']['status_n'] = 2; else $search['searchForm']['status_n'] = '';
+		 $start_f = 1;
+	 }
+
+	 $this->set('search', $search);
+	 $property_data = $this->Property->find('all',array(
+	 		'fields' => array('Property.puroperty_id','Property.name'),
+	 		'order' => array('Property.puroperty_id')
+	 ));
+
+	 $this->set('property_datas', $property_data);
+	 $items = $this->Item->find('all',array(
+	 		'fields' => array('Item.item_id','Item.name'),
+	 		'order' => array('Item.item_id')
+	 ));
+	 $users = $this->User->find('all',array(
+			'conditions' => array('User.authority_id' => '1','valid_flag'=>'1'),
+	 		'fields' => array('User.user_id','User.user_name'),
+	 		'order' => array('User.user_id')
+	 ));
+	 //debug($users);
+	 $audits = array();
+	 if ($start_f == 0) {
+	 	$audits = $this->Audit->find('all',array(
+	 			'conditions' => $condition,
+	 			'fields' => array('Audit.audit_id','Audit.store_id','Audit.item_id','Audit.status','audit_scheduled_date','audit_end_date'),
+	 			'order' => array('Audit.audit_scheduled_date')
+	 	));
+				
+	 }
+	 if ($start_f == 1) {
+	 	//debug($condition1);
+	 	$audits = $this->Audit->find('all',array(
+	 			'conditions' => $condition1,
+	 			'fields' => array('Audit.audit_id','Audit.store_id','Audit.item_id','Audit.status','audit_scheduled_date','audit_end_date'),
+	 			'order' => array('Audit.audit_scheduled_date')
+	 	));
+				
+	 }
+		$this->Cookie->write("calendar_condition",$condition);
+	 //debug($categories);
+	 //debug($audits);
+	 if ($start_f == 0 && count($audits) == 0)  $err_mmmm = 1;
+	 $this->set('items', $items);
+	 $this->set('users', $users);
+	 for($i = 0 ; $i < count($audits) ; $i++){
+	 	$data = $this->Store->find('all', array('conditions'=> array('Store.store_id' => $audits[$i]['Audit']['store_id'])));
+	 	$audits[$i]['Audit']['store_no'] = $data['0']['Store']['store_no'];
+	 }
+	 $this->set('audits', $audits);
+	 //debug($audits);
+	 if ($err_mmmm == 1) {
+	 	$text = "検索結果はありません。再検索してください。<br>";
+	 	$this->set('e_message', $text);
+	 }
+
+	}
+	public function eventlist($date = null) {
+		$this->layout = 'ajax';
+		$condition = array('Audit.audit_scheduled_date'=>$date);
+		$search = $this->Cookie->read('calendar_searchForm');
+		if (isset($search)){
+			if($search['searchForm']['property_id'] != '0'){
+		  $property_id = $search['searchForm']['property_id'];
+		  $store_data = $this->Store->find('list',array(
+		  		'conditions' => array('Store.property_id' => $property_id),
+		  		'fields' => array('Store.store_id','Store.store_id'),
+		  ));
+		  //debug($store_data);
+		  $condition += array('Audit.store_id' =>  array_keys($store_data));
+		  	
+			}
+
+
+		 if($search['searchForm']['item_id'] != '0') $condition += array('Audit.item_id' =>$search['searchForm']['item_id']);
+		 if($search['searchForm']['user_id'] != '0') $condition += array('Audit.audit_create_user' =>$search['searchForm']['user_id']);
+		 if($search['searchForm']['status_n'] != '') $condition += array('Audit.status' =>$search['searchForm']['status_n']);
+
+		}
+		$audits = $this->Audit->find('all',array(
+				'conditions' => $condition,
+				'fields' => array('Audit.audit_id','Audit.store_id','Audit.item_id','Audit.status','audit_scheduled_date','audit_end_date'),
+				'order' => array('Audit.audit_scheduled_date')
+		));
+		for($i = 0 ; $i < count($audits) ; $i++){
+	 	$data = $this->Store->find('all', array('conditions'=> array('Store.store_id' => $audits[$i]['Audit']['store_id'])));
+	 	$audits[$i]['Audit']['store_no'] = $data['0']['Store']['store_no'];
+		}
+		$this->set('audits', $audits);
+		//debug($audits);
+	}
+	public function storesearch(){
+		$this->layout = 'ajax';
+		if ($this->request->is('post')) {
+			$data = $this->request->data;
+			$name_store = $data['curr'];
+			$name_date = $data['date'];
+			if($name_store != null){
+				$arrStore = $this->Store->find('all', array(
+						'conditions' => array(
+								'Store.store_no' => $name_store,
+								'Store.valid_start_day <=' => $name_date,
+						)
+				));
+			}else {
+				$arrStore = $this->Store->find('all', array(
+						'conditions' => array(
+								'Store.valid_start_day <=' => $name_date,
+						)
+				));
+			}
+			$data_store_final = array();
+			$i=0;
+			foreach($arrStore as $bibi){
+				if ($bibi['Store']['valid_end_day'] != NULL && $bibi['Store']['valid_end_day'] < $name_date ){
+			  //debug($bibi);
+				} else {
+					$data_store_final[$i]= $bibi;
+					$i++;
+		  }
+			}
+			$this->set('arrStore',$data_store_final);
+		}
+	}
+
+	public function register($dates = null){
+		 
+		if($dates == null) {
+			$dates = date('Y-m-d');
+		}
+		 
+		$this->layout = 'ajax';
+		$this->layout = 'user';
+		$page_tittle = "予定入力";
+		$this->set("page_tittle",$page_tittle);
+		 
+		$this->set('date_audit', $dates);
+		$data_item = $this->Item->find('all');
+		$this->set('items', $data_item);
+		 
+		$data_store = $this->Store->find('all',array(
+				'conditions' => array(
+						'Store.valid_start_day <=' => $dates,
+				)
+		));
+		$data_store_final = array();
+		$i=0;
+		foreach($data_store as $bibi){
+	  if ($bibi['Store']['valid_end_day'] != NULL && $bibi['Store']['valid_end_day'] < $dates ){
+	  } else {
+				$data_store_final[$i]= $bibi;
+				$i++;
+	  }
+		}
+		$this->set('stores', $data_store_final);
+		$data_audit = array();
+		$data_audit['Calendar']['name_store'] = '';
+		$data_audit['Calendar']['store_id'] = '';
+		$data_audit['Calendar']['item_id'] = '';
+		 
+		if ($this->request->is('post')) {
+			$data = $this->request->data;
+			//debug($data);
+			if ($data['Calendar']['store_id'] == 0) $data['Calendar']['store_id']='';
+			$this->Calendar->set($data);
+			
+			$this->Cookie->write("auditRegister",$data);
+			if($this->Calendar->validates()){
+				return $this->redirect(array('controller'=>'Calendar','action'=>'register_confirm'));
+			}
+		}
+		 
+		$aryAuditRegister = $this->Cookie->read('auditRegister');
+		if (isset($aryAuditRegister)){
+			//debug($aryAuditRegister);
+			$data_audit = array();
+			$data_audit['Calendar']['name_store'] = $aryAuditRegister['Calendar']['name_store'];
+			$data_audit['Calendar']['store_id'] = $aryAuditRegister['Calendar']['store_id'];
+			$data_audit['Calendar']['item_id'] = $aryAuditRegister['Calendar']['item_id'];;
+
+			$data_store_search = $this->Store->find('all',array('conditions' => array('Store.store_no' => $aryAuditRegister['Calendar']['name_store'])));
+			//debug(count($data_store_search));die;
+			$this->set('stores_search', $data_store_search);
+			$this->Cookie->delete('auditRegister');
+		}
+		$this->set('data', $data_audit);
+	}
+	public function register_confirm(){
+		$this->layout = 'user';
+		$page_tittle = "予定入力確認";
+		$this->set("page_tittle",$page_tittle);
+		$aryUser = $this->Session->read('Auth.User');
+		$this->set('aryUser', $aryUser);
+		$aryAuditRegister = $this->Cookie->read('auditRegister');
+		if (isset($aryAuditRegister)){
+			//debug($aryAuditRegister);
+			$this->set('data', $aryAuditRegister);	
+			$data_item = $this->Item->find('all', array('conditions'=> array('Item.item_id'=>$aryAuditRegister['Calendar']['item_id'])));
+			$this->set('items', $data_item);
+				
+			$data_store = $this->Store->find('all', array('conditions'=> array('Store.store_id'=>$aryAuditRegister['Calendar']['store_id'])));
+			$this->set('stores', $data_store);
+		}
+		else {
+			return $this->redirect(array('action'=>'register'));
+		}
+
+		if($this->request->is('post')){
+			$data = $this->request->data;
+			//debug($data);die;
+			
+			$temp = array();
+			$temp['Audit']['store_id'] = $data['Calendar']['store_id'];
+			$temp['Audit']['item_id'] = $data['Calendar']['item_id'];
+			$temp['Audit']['audit_scheduled_date'] = $data['Calendar']['date'];
+			$temp['Audit']['impossible'] = '0';
+			$temp['Audit']['audit_create_user'] = $aryUser['user_id'];
+			$temp['Audit']['status'] = '0';
+			// 			$temp['Audit']['update_datetime'] = date('Y-m-d H:i:s');
+			// 			$temp['Audit']['update_user'] = $aryUser['user_id'];
+			$this->Cookie->delete('auditRegister');
+			if($this->Audit->save($temp)){
+				$this->redirect(array('controller'=>'Calendar','action'=>'success_register'));
+			}
+		}
+		 
+	}
+	public function success_register(){
+		$this->layout = 'user';
+		$page_tittle = "予定入力完了";
+		$this->set("page_tittle",$page_tittle);
+	}
+	 
+	public function view(){
+		$this->layout = 'user';
+		$page_tittle = "書類項目編集";
+		$this->set("page_tittle",$page_tittle);
+
+		$document_id = $this->request->pass['0'];
+		$someone = $this->Document->find('first',array(
+				'conditions' => array('document_id' => $document_id)
+		));
+
+		$this->set('data', $someone);
+		//debug($someone);
+
+		$data_item = $this->Item->find('all');
+		$this->set('data_item', $data_item);
+
+		$data_catagory = $this->Category->find('all');
+		$this->set('data_category', $data_catagory);
+
+		if ($this->request->is('post')) {
+			$data = $this->request->data;
+			$data['Document'] += array('document_id'=>$someone['Document']['document_id']);
+			$this->Document->set($data);
+			$this->Cookie->write("documentRegister",$data);
+			if($this->Document->validates()){
+				return $this->redirect(array('action'=>'change_confirm'));
+			}
+		}
+
+		$aryDocumentRegister = $this->Cookie->read('documentRegister');
+		if (isset($aryDocumentRegister)){
+			//debug($aryDocumentRegister);
+			$this->set("data",$aryDocumentRegister);
+			$this->Cookie->delete('documentRegister');
+
+		}
+	}
+	public function change_confirm(){
+		$this->layout = 'user';
+		$page_tittle = "書類項目入力確認";
+		$this->set("page_tittle",$page_tittle);
+
+		$aryDocumentRegister = $this->Cookie->read('documentRegister');
+		//debug($aryDocumentRegister);
+		if (isset($aryDocumentRegister)){
+			$this->set('document_data', $aryDocumentRegister);
+			$data_item = $this->Item->find('all', array('conditions'=> array('Item.item_id'=>$aryDocumentRegister['Document']['item_id'])));
+			$this->set('items', $data_item);
+			$data_category = $this->Category->find('all', array('conditions'=> array('Category.category_id'=>$aryDocumentRegister['Document']['category_id'])));
+			$this->set('category', $data_category);
+		}
+		else {
+			return $this->redirect(array('action'=>'register'));
+		}
+			
+		if ($this->request->is('post')) {
+			$data = $this->request->data;
+			//debug($data);die();
+			$aryUser = $this->Session->read('Auth.User');
+				
+			$item_change = $data['Document']['item_id'];
+			$category_change = $data['Document']['category_id'];
+			$transfer_flag_change = $data['Document']['transfer_flag'];
+			$contents_change = $data['Document']['contents'];
+			$start_date_change = $data['Document']['start_date'];
+			$end_date_change = $data['Document']['end_date'];
+			$register_datetime_change = date('Y-m-d H:i:s');
+			$register_user = $aryUser['user_id'];
+
+			if ($this->Document->updateAll(array(
+					'item_id' => "'$item_change'",
+					'category_id' => "'$category_change'",
+					'contents'=>"'$contents_change'",
+					'transfer_flag' => "'$transfer_flag_change'",
+					'start_date' => "'$start_date_change'",
+					'end_date' => "'$end_date_change'",
+					'register_datetime' => "'$register_datetime_change'",
+					'register_user'=>"'$register_user'"),
+					array('document_id' => $aryDocumentRegister['Document']['document_id']))){
+				$this->Cookie->delete('documentRegister');
+				$this->redirect(array('controller'=>'Document','action'=>'success_change'));
+			}
+		}
+	}
+
+	public function change_info(){
+		$page_tittle = "ユーザ編集";
+	 $this->set("page_tittle",$page_tittle);
+	}
+	public function success_change(){
+		$this->layout = 'user';
+		$page_tittle = "書類項目編集完了";
+		$this->set("page_tittle",$page_tittle);
+		
+	}
+
+}
+?>

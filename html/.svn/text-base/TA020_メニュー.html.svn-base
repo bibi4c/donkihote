@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>TA020_メニュー</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="main">
+				<h1>メニュー</h1>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div class="toparea clearfix">
+				<div class="link">
+					<a href="TA020_メニュー.html" class="smHome" title="ホーム">ホーム</a>
+					<!--
+					<a href="javascript:void(0);" class="smInquiry" title="問合せ一覧">問合せ一覧</a>
+					<a href="javascript:void(0);" class="smHistory" title="履歴一覧">履歴一覧</a>
+					<a href="javascript:void(0);" class="smStore" title="店舗一覧">店舗一覧</a>
+					-->
+					<a href="TA010_ログイン.html" class="smLogout" title="ログアウト">ログアウト</a>
+				</div>
+			</div>
+
+			<div class="mainarea">
+				<ul id="operationMenu" class="clearfix">
+					<li><a href="TB010_カレンダー.html"><img src="images/menu_calendar.png" alt="カレンダー" /></a></li>
+					<li><a href="TC010_監査表検索.html"><img src="images/menu_search.png" alt="監査情報検索" /></a></li>
+					<li><a href="MA010_書類項目一覧.html"><img src="images/menu_editdocs.png" alt="書類項目編集" /></a></li>
+					<li><a href="MC010_店舗一覧.html"><img src="images/menu_editstore.png" alt="店舗情報編集" /></a></li>
+					<li><a href="MB010_ユーザ一覧.html"><img src="images/menu_edituser.png" alt="ユーザー情報編集" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
