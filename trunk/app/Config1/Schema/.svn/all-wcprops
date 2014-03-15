@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema
+END
+db_acl.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/db_acl.sql
+END
+sessions.sql
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/sessions.sql
+END
+i18n.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/i18n.php
+END
+db_acl.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/db_acl.php
+END
+sessions.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/sessions.php
+END
+i18n.sql
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/Schema/i18n.sql
+END

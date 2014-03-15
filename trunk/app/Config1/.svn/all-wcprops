@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/!svn/ver/18446/hws/hws_donki/trunk/app/Config
+END
+email.php.default
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/email.php.default
+END
+acl.ini.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/acl.ini.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/!svn/ver/18131/hws/hws_donki/trunk/app/Config/bootstrap.php
+END
+acl.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/acl.php
+END
+routes.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/routes.php
+END
+database.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/database.php
+END
+database.php.default
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/!svn/ver/14328/hws/hws_donki/trunk/app/Config/database.php.default
+END
+email.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/!svn/ver/18131/hws/hws_donki/trunk/app/Config/email.php
+END
+core.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/!svn/ver/18446/hws/hws_donki/trunk/app/Config/core.php
+END
